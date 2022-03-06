@@ -1,0 +1,395 @@
+/* halaman 1 */
+#halaman1 {
+  background-image: url(./../img/main-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.navbar {
+  font-family: Bebas Neue;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.navbar-brand {
+  margin-left: 40px;
+}
+.fw-light {
+  font-size: 72px;
+  font-family: Arial;
+  color: white;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 64px;
+}
+#teksgame1 {
+  font-family: Open Sans;
+  font-size: 30px;
+  color: white;
+}
+#halaman1 .btn-warning {
+  align-items: center;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 60px;
+  border-radius: 5px;
+  position: relative;
+  background-color: orange;
+}
+section {
+  position: absolute;
+}
+.story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  position: absolute;
+  bottom: 0;
+}
+/* halaman2 */
+#halaman2 {
+  background-image: url(./../img/the-games-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 800px;
+}
+.kirigame {
+  color: white;
+  font-family: sans-serif;
+  text-align: left;
+  font-weight: normal;
+}
+.kirigame h1 {
+  font-size: 55px;
+}
+#conten2 {
+  position: relative;
+  top: 150px;
+}
+/* halaman 3 */
+#halaman3 {
+  background-image: url(./../img/features.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 750px;
+}
+#progres {
+  position: relative;
+  top: 150px;
+}
+#progres ul.text-satu {
+  list-style-type: circle;
+  color: white;
+  list-style-type: unset;
+}
+#progres ul.text-dua {
+  list-style-type: circle;
+  color: white;
+}
+#progres h1,
+h4,
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+#progres h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: orange;
+  list-style: circle;
+}
+/* halaman 4 */
+#halaman4 {
+  background-image: url(./../img/the-games-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.requer h6 {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+#spek {
+  text-align: center;
+  background-color: aaa;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+table {
+  text-align: left;
+  width: fit-content;
+  color: white;
+  margin-top: 50px;
+  border-color: solid white;
+}
+table,
+p {
+  font-weight: normal;
+  font-size: 20px;
+}
+table h3 {
+  color: orange;
+  font-weight: normal;
+}
+table,
+td,
+th {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 10px;
+}
+.requer h1 {
+  font-size: 55px;
+  color: white;
+  text-align: left;
+  font-weight: normal;
+}
+.requer col {
+  padding: 30px;
+}
+#halaman5 {
+  background-image: url(./../img/the-games-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+#halaman5 .btn-warning {
+  font-family: arial;
+  font-weight: normal;
+  background-color: orange;
+  margin-top: 30px;
+  padding: 6px 40px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.topscore {
+  position: relative;
+  top: 30%;
+}
+.topscore h1 {
+  font-family: Arial;
+  font-size: 50px;
+  color: white;
+}
+.content-flex {
+  font-family: Arial;
+}
+.content-flex h5 {
+  color: orange;
+}
+.content-flex h6 {
+  color: grey;
+}
+.content-flex p {
+  color: white;
+  font-size: 15px;
+}
+.flex-one,
+.flex-two,
+.flex-three {
+  height: 150px;
+  width: 60%;
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 8px;
+}
+.flex-one {
+  background-color: rgba(68, 60, 60, 0.308);
+  float: right;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.flex-two {
+  background-color: rgba(68, 60, 60, 0.308);
+  float: left;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.flex-three {
+  background-color: rgba(68, 60, 60, 0.308);
+  float: right;
+  border-radius: 10px;
+}
+/* Halaman 6 */
+#halaman6 {
+  background-image: url(./../img/the-games-bg2.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: relative;
+}
+#subs {
+  font-family: Arial;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  padding: 4px;
+}
+#subs h1 {
+  font-size: 50px;
+  font-weight: normal;
+  color: orange;
+}
+#subs p {
+  font-size: 15px;
+}
+#subs .btn-warning {
+  background-color: orange;
+  border-color: orange;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 7px 40px;
+}
+.form-control {
+  background-color: white;
+  border-color: orange;
+  color: orange;
+}
+/* footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.container footer {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* sign up */
+#signup {
+  background-image: url(./../img/the-games-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+/* mobile version */
+@media (max-width: 800px) {
+  .fw-light {
+    font-size: 55px;
+    font-family: Arial;
+    color: white;
+  }
+  .navbar-brand {
+    position: relative;
+    margin-left: 9px;
+  }
+  #teksgame1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+  }
+  .btn-warning {
+    align-items: center;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: 50px;
+    padding: 10px 50px;
+    border-radius: 5px;
+  }
+  .story {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    padding: 10%;
+  }
+  .kirigame h1 {
+    font-size: 40px;
+  }
+  #halaman2 {
+    height: 700px;
+  }
+  #halaman4 h1 {
+    font-size: 40px;
+  }
+  table {
+    margin-top: 0;
+  }
+  table,
+  p {
+    font-weight: normal;
+    font-size: 18px;
+  }
+  table h3 {
+    color: orange;
+    font-weight: normal;
+    font-size: 22px;
+  }
+  #halaman5 {
+    height: 800px;
+  }
+  .topscore {
+    position: relative;
+    top: 50%;
+    margin-left: 8px;
+    text-align: center;
+  }
+  .topscore h1 {
+    font-family: Arial;
+    font-size: 40px;
+    color: white;
+  }
+  .content-flex {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #subs .btn-warning {
+    background-color: orange;
+    border-color: orange;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 6px 20px;
+  }
+  #halaman6 {
+    height: 750px;
+  }
+  @media (max-width: 400px) {
+    .fw-light {
+      font-size: 50px;
+      font-family: Arial;
+      color: white;
+      margin-top: 100px;
+    }
+    #halaman2 {
+      height: 500px;
+    }
+    #halaman4 h1 {
+      font-size: 30px;
+    }
+  }
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chalenge-5</title>
+  </head>
+  <!-- css bootstrap -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <!-- JavaScript Bundle with Popper -->
+
+  <script src="bootstrap/js/bootstrap.bundle.js"></script>
+
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <!-- css -->
+  <link rel="stylesheet" href="css/index.css" />
+  <!-- konten -->
+  <body>
+    <!-- halaman 1 -->
+    <div class="container-sm" id="halaman1">
+      <div class="container" id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark opacity-75">
+          <div class="container-fluid">
+            <a class="navbar-brand me-5" href="/">LOGO</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="/home">HOME</a>
+                <a class="nav-link active" href="#">WORK</a>
+                <a class="nav-link active" href="#">CONTACT</a>
+                <a class="nav-link active" href="#">ABOUT ME</a>
+                <div class="btn-group">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Halaman</a>
+                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/home/about">About</a></li>
+                      <li><a class="dropdown-item" href="/home/Features">Features</a></li>
+                      <li><a class="dropdown-item" href="/home/requirements">Requirements</a></li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li><a class="dropdown-item" href="/home/subscribe">Subscribe</a></li>
+                    </ul>
+                  </li>
+                </div>
+              </div>
+
+              <div class="navbar-nav me-4" id="tekskiri">
+                <a class="nav-link actisve" href="/signup">SIGN UP</a>
+                <a class="nav-link active" href="/login">LOGIN</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <section class="col-lg-12 col-md-12 col-sm-12 mx-auto text-center container">
+        <h1 class="fw-light">PLAY TRADITIONAL GAME</h1>
+        <p class="lead" id="teksgame1">Experience new tradisional game play</p>
+        <p>
+          <a href="/play" class="btn btn-warning my-2">PLAY</a>
+        </p>
+      </section>
+      <div class="story p-3">
+        <svg width="65" height="10" viewBox="0 0 65 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M4.6875 9.21753H2.87109V2.16284H0.544922V0.651123H7.01367V2.16284H4.6875V9.21753ZM15.3516 9.21753H13.541V5.52026H10.1484V9.21753H8.33203V0.651123H10.1484V4.00854H13.541V0.651123H15.3516V9.21753ZM22.4531 9.21753H17.5195V0.651123H22.4531V2.1394H19.3359V4.02026H22.2363V5.50854H19.3359V7.71753H22.4531V9.21753ZM32.4199 6.83862C32.4199 7.61206 32.1406 8.22144 31.582 8.66675C31.0273 9.11206 30.2539 9.33472 29.2617 9.33472C28.3477 9.33472 27.5391 9.16284 26.8359 8.81909V7.13159C27.4141 7.3894 27.9023 7.57104 28.3008 7.67651C28.7031 7.78198 29.0703 7.83472 29.4023 7.83472C29.8008 7.83472 30.1055 7.75854 30.3164 7.6062C30.5312 7.45386 30.6387 7.22729 30.6387 6.92651C30.6387 6.75854 30.5918 6.61011 30.498 6.4812C30.4043 6.34839 30.2656 6.22144 30.082 6.10034C29.9023 5.97925 29.5332 5.78589 28.9746 5.52026C28.4512 5.27417 28.0586 5.03784 27.7969 4.81128C27.5352 4.58472 27.3262 4.32104 27.1699 4.02026C27.0137 3.71948 26.9355 3.36792 26.9355 2.96558C26.9355 2.20776 27.1914 1.61206 27.7031 1.17847C28.2188 0.744873 28.9297 0.528076 29.8359 0.528076C30.2812 0.528076 30.7051 0.580811 31.1074 0.686279C31.5137 0.791748 31.9375 0.940186 32.3789 1.13159L31.793 2.5437C31.3359 2.3562 30.957 2.22534 30.6562 2.15112C30.3594 2.0769 30.0664 2.03979 29.7773 2.03979C29.4336 2.03979 29.1699 2.11987 28.9863 2.28003C28.8027 2.44019 28.7109 2.64917 28.7109 2.90698C28.7109 3.06714 28.748 3.20776 28.8223 3.32886C28.8965 3.44604 29.0137 3.56128 29.1738 3.67456C29.3379 3.78394 29.7227 3.98315 30.3281 4.27222C31.1289 4.65503 31.6777 5.03979 31.9746 5.42651C32.2715 5.80933 32.4199 6.28003 32.4199 6.83862ZM37.2773 9.21753H35.4609V2.16284H33.1348V0.651123H39.6035V2.16284H37.2773V9.21753ZM48.6973 4.92261C48.6973 6.34058 48.3457 7.43042 47.6426 8.19214C46.9395 8.95386 45.9316 9.33472 44.6191 9.33472C43.3066 9.33472 42.2988 8.95386 41.5957 8.19214C40.8926 7.43042 40.541 6.33667 40.541 4.91089C40.541 3.48511 40.8926 2.39722 41.5957 1.64722C42.3027 0.893311 43.3145 0.516357 44.6309 0.516357C45.9473 0.516357 46.9531 0.895264 47.6484 1.65308C48.3477 2.41089 48.6973 3.50073 48.6973 4.92261ZM42.4453 4.92261C42.4453 5.87964 42.627 6.60034 42.9902 7.08472C43.3535 7.56909 43.8965 7.81128 44.6191 7.81128C46.0684 7.81128 46.793 6.84839 46.793 4.92261C46.793 2.99292 46.0723 2.02808 44.6309 2.02808C43.9082 2.02808 43.3633 2.27222 42.9961 2.7605C42.6289 3.24487 42.4453 3.96558 42.4453 4.92261ZM52.2891 4.45386H52.875C53.4492 4.45386 53.873 4.35815 54.1465 4.16675C54.4199 3.97534 54.5566 3.67456 54.5566 3.2644C54.5566 2.85815 54.416 2.56909 54.1348 2.39722C53.8574 2.22534 53.4258 2.1394 52.8398 2.1394H52.2891V4.45386ZM52.2891 5.93042V9.21753H50.4727V0.651123H52.9688C54.1328 0.651123 54.9941 0.864014 55.5527 1.28979C56.1113 1.71167 56.3906 2.35425 56.3906 3.21753C56.3906 3.72144 56.252 4.17065 55.9746 4.56519C55.6973 4.95581 55.3047 5.26245 54.7969 5.48511C56.0859 7.41089 56.9258 8.65503 57.3164 9.21753H55.3008L53.2559 5.93042H52.2891ZM61.0605 4.17847L62.8477 0.651123H64.8047L61.9629 5.88354V9.21753H60.1582V5.94214L57.3164 0.651123H59.2852L61.0605 4.17847Z"
+            fill="white"
+          />
+        </svg>
+        <br />
+        <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.5786 1.83362H1.32422L11.338 10.0027L21.5786 1.83362Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </div>
+    <!-- halaman 2 -->
+    <div class="container" id="halaman2">
+      <div>
+        <div class="row justify-content-center" id="conten2">
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="kirigame">
+              <br />
+              <h4>what's so special ?</h4>
+              <br />
+              <h1>THE GAMES</h1>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <br />
+            <br />
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="img/rockpaperstrategy-1600.jpg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                  <img src="img/rockpaperstrategy-1600.jpg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                  <img src="img/rockpaperstrategy-1600.jpg" class="d-block w-100" alt="..." />
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- halaman3 -->
+    <div class="container" id="halaman3">
+      <div class="row justify-content-end" id="progres">
+        <div class="col-lg-5 col-md-6 col-sm-10" style="background-color: rgba(20, 7, 7, 0.315)">
+          <h4>What's so special?</h4>
+          <h1>FEATURES</h1>
+          <br />
+          <br />
+          <ul class="text-satu">
+            <li>
+              <h3>TRADITIONAL GAME</h3>
+              <p>If You Miss Your Chilhood, We Provide <br />Many Traditional Game Here</p>
+            </li>
+          </ul>
+          <ul class="text-dua">
+            <li>
+              <h3>GAME SUIT</h3>
+            </li>
+            <br />
+            <li>
+              <h3>TBD</h3>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- halaman 4 -->
+    <div class="container" id="halaman4">
+      <div>
+        <div class="row">
+          <div id="requer" class="requer">
+            <h6>Can My Computer Run this Game?</h6>
+            <div class="container-lg">
+              <div class="col-lg-8 col-md-11 col-sm-10" id="spek">
+                <h1>SYSTEM <br />REQUIREMENT</h1>
+                <table style="width: 100%">
+                  <tr>
+                    <td>
+                      <h3>OS :</h3>
+                      <p>Windows 7 64-bit Only <br />(No OSX support at this time)</p>
+                    </td>
+                    <td>
+                      <h3>PROCESSOR :</h3>
+                      <p>Intel Core 2 Duo @ 2.4 GHZ or <br />AMD Athlon X2 @ 2.8 GHZ</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>MEMORY :</h3>
+                      <p>8 GB RAM</p>
+                    </td>
+                    <td>
+                      <h3>STORAGE :</h3>
+                      <p>8 GB Available Space</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th colspan="2">
+                      <h3>GRAPHICS :</h3>
+                      <p>NVIDIA GeForce GTX 660 2Gb or <br />AMD Radeon HD 7850 2Gb DirectX11 (Shader Model 5)</p>
+                    </th>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- halaman 5 -->
+    <div class="container">
+      <div class="row justify-content-center" id="halaman5">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+          <div class="topscore">
+            <h1>TOPSCORES</h1>
+            <p class="mb-sm-0">This topscore from various game provided <br />on this paltform</p>
+            <a href="#" class="btn btn-warning">see more</a>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-10 col-sm-10">
+          <div class="content-flex mt-sm-5">
+            <div class="flex-one justify-content-between">
+              <h5>
+                Evan Lathi
+                <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    opacity="0.3"
+                    d="M18.3981 2.41449C17.7231 2.70013 17.0072 2.88765 16.2741 2.97084C17.0365 2.53297 17.623 1.84099 17.899 1.01526C17.1731 1.42694 16.3789 1.71699 15.5508 1.87286C14.8519 1.15947 13.8744 0.755389 12.8519 0.757085C10.8105 0.757085 9.15361 2.33909 9.15361 4.29061C9.15361 4.5679 9.18627 4.83816 9.25021 5.09623C6.17639 4.94862 3.45216 3.54236 1.62787 1.404C1.30934 1.92529 1.12764 2.53297 1.12764 3.18076C1.12764 4.40623 1.78024 5.48805 2.77231 6.12188C2.18494 6.10468 1.61046 5.95309 1.09706 5.67983V5.7249C1.09706 7.43659 2.37189 8.86495 4.06278 9.19027C3.5182 9.3312 2.94722 9.35187 2.39305 9.25072C2.86384 10.6549 4.22998 11.6764 5.8475 11.7061C4.5821 12.6524 2.98781 13.2184 1.25483 13.2184C0.960153 13.2181 0.66574 13.2015 0.373047 13.1689C2.00943 14.1713 3.95365 14.7571 6.04185 14.7571C12.8438 14.7571 16.5627 9.37118 16.5627 4.70056C16.5627 4.54779 16.5627 4.39502 16.5513 4.24335C17.2749 3.74295 17.8998 3.12372 18.3969 2.41449H18.3981Z"
+                    fill="white"
+                  />
+                </svg>
+                <h6>PC Gamer</h6>
+              </h5>
+              <p>"Lorem ipsum dolor sit amet consectetur, adipisicing elit."</p>
+              <h6 style="font-size: 10px">June 18, 2018</h6>
+            </div>
+            <div class="flex-two">
+              <h5>
+                Jada Griffin
+                <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    opacity="0.3"
+                    d="M18.3981 2.41449C17.7231 2.70013 17.0072 2.88765 16.2741 2.97084C17.0365 2.53297 17.623 1.84099 17.899 1.01526C17.1731 1.42694 16.3789 1.71699 15.5508 1.87286C14.8519 1.15947 13.8744 0.755389 12.8519 0.757085C10.8105 0.757085 9.15361 2.33909 9.15361 4.29061C9.15361 4.5679 9.18627 4.83816 9.25021 5.09623C6.17639 4.94862 3.45216 3.54236 1.62787 1.404C1.30934 1.92529 1.12764 2.53297 1.12764 3.18076C1.12764 4.40623 1.78024 5.48805 2.77231 6.12188C2.18494 6.10468 1.61046 5.95309 1.09706 5.67983V5.7249C1.09706 7.43659 2.37189 8.86495 4.06278 9.19027C3.5182 9.3312 2.94722 9.35187 2.39305 9.25072C2.86384 10.6549 4.22998 11.6764 5.8475 11.7061C4.5821 12.6524 2.98781 13.2184 1.25483 13.2184C0.960153 13.2181 0.66574 13.2015 0.373047 13.1689C2.00943 14.1713 3.95365 14.7571 6.04185 14.7571C12.8438 14.7571 16.5627 9.37118 16.5627 4.70056C16.5627 4.54779 16.5627 4.39502 16.5513 4.24335C17.2749 3.74295 17.8998 3.12372 18.3969 2.41449H18.3981Z"
+                    fill="white"
+                  />
+                </svg>
+                <h6>NerdReactor</h6>
+              </h5>
+              <p>"Lorem ipsum dolor sit amet consectetur, adipisicing elit"</p>
+              <h6 style="font-size: 10px">July 10, 2021</h6>
+            </div>
+            <div class="flex-three">
+              <h5>
+                Aaron Wiliams
+                <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    opacity="0.3"
+                    d="M18.3981 2.41449C17.7231 2.70013 17.0072 2.88765 16.2741 2.97084C17.0365 2.53297 17.623 1.84099 17.899 1.01526C17.1731 1.42694 16.3789 1.71699 15.5508 1.87286C14.8519 1.15947 13.8744 0.755389 12.8519 0.757085C10.8105 0.757085 9.15361 2.33909 9.15361 4.29061C9.15361 4.5679 9.18627 4.83816 9.25021 5.09623C6.17639 4.94862 3.45216 3.54236 1.62787 1.404C1.30934 1.92529 1.12764 2.53297 1.12764 3.18076C1.12764 4.40623 1.78024 5.48805 2.77231 6.12188C2.18494 6.10468 1.61046 5.95309 1.09706 5.67983V5.7249C1.09706 7.43659 2.37189 8.86495 4.06278 9.19027C3.5182 9.3312 2.94722 9.35187 2.39305 9.25072C2.86384 10.6549 4.22998 11.6764 5.8475 11.7061C4.5821 12.6524 2.98781 13.2184 1.25483 13.2184C0.960153 13.2181 0.66574 13.2015 0.373047 13.1689C2.00943 14.1713 3.95365 14.7571 6.04185 14.7571C12.8438 14.7571 16.5627 9.37118 16.5627 4.70056C16.5627 4.54779 16.5627 4.39502 16.5513 4.24335C17.2749 3.74295 17.8998 3.12372 18.3969 2.41449H18.3981Z"
+                    fill="white"
+                  />
+                </svg>
+                <h6>Uproxx</h6>
+              </h5>
+              <p>"Lorem ipsum dolor sit amet consectetur, adipisicing elit"</p>
+              <h6 style="font-size: 10px">December 24, 2018</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- halaman6 -->
+    <div class="container" id="halaman6">
+      <div class="row justify-content-end">
+        <div class="col-lg-6 col-md-12 col-sm-10 p-3" id="subs">
+          <h5>
+            Want to stay in <br />
+            touch?
+          </h5>
+          <br />
+          <h1>
+            NEWSLETTER <br />
+            SUBSCRIBE
+          </h1>
+          <br />
+          <p>
+            In order to start receiving our news, all you have to do is enter your email address. Everything else will be taken care of by us. We will send you emails containing information about
+            game. We don’t spam.
+          </p>
+          <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-8">
+              <input type="email" class="form-control mb-4" id="exampleFormControlInput1" placeholder="youremail@binar.co.id" />
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12">
+              <button type="submit" class="btn btn-warning mb-3">Subscribe Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- footer -->
+      <div class="container">
+        <footer class="py-3 px-3 pb-1 bg-black my-auto">
+          <ul class="nav justify-content-end border-bottom pb-3 mb-3">
+            <li class="nav-item me-3"><a href="#halaman1" class="nav-link px-2 text-white">MAIN</a></li>
+            <li class="nav-item me-3"><a href="#halaman2" class="nav-link px-2 text-white">ABOUT</a></li>
+            <li class="nav-item me-3"><a href="#halaman3" class="nav-link px-2 text-white"> GAME FEATURES</a></li>
+            <li class="nav-item"><a href="#halaman4" class="nav-link px-2 text-white">SYSTEM REQUIREMENT</a></li>
+            <li class="nav-item ms-2 me-3">
+              <a href="https://www.facebook.com" class="nav-link">
+                <svg width="20" height="18" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.65382 19.1726H2.56282V9.67859H0.517822V6.40559H2.56282V4.44159C2.56282 1.77259 3.71782 0.183594 6.99582 0.183594H9.72582V3.45659H8.02082C6.74282 3.45659 6.65882 3.91459 6.65882 4.76859L6.65382 6.40559H9.74582L9.38382 9.67859H6.65382V19.1726Z"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item me-3">
+              <a href="https://www.twitter.com" class="nav-link">
+                <svg width="20" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M21.2138 2.42967C20.4408 2.75167 19.6098 2.96667 18.7388 3.06467C19.6288 2.56467 20.3118 1.77267 20.6338 0.830668C19.7998 1.29267 18.8778 1.62867 17.8958 1.81067C17.1108 1.02467 15.9898 0.534668 14.7508 0.534668C12.3708 0.534668 10.4398 2.34367 10.4398 4.57367C10.4398 4.89067 10.4778 5.19967 10.5518 5.49467C6.96981 5.32567 3.79381 3.71767 1.66781 1.27467C1.29681 1.87167 1.08481 2.56467 1.08481 3.30567C1.08481 4.70567 1.84581 5.94367 3.00181 6.66767C2.29581 6.64567 1.63181 6.46467 1.04981 6.16167C1.04981 6.17967 1.04981 6.19467 1.04981 6.21367C1.04981 8.17067 2.53481 9.80267 4.50681 10.1737C4.14581 10.2657 3.76381 10.3137 3.37181 10.3137C3.09381 10.3137 2.82381 10.2897 2.56081 10.2437C3.10881 11.8467 4.70081 13.0157 6.58681 13.0487C5.11181 14.1317 3.25381 14.7767 1.23381 14.7767C0.885811 14.7767 0.542811 14.7577 0.205811 14.7207C2.11281 15.8657 4.37881 16.5357 6.81281 16.5357C14.7408 16.5357 19.0758 10.3797 19.0758 5.04267C19.0758 4.86667 19.0708 4.69367 19.0628 4.51967C19.9048 3.94967 20.6358 3.23867 21.2138 2.42967Z"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item me-3">
+              <a href="https://www.youtube.com" class="nav-link">
+                <svg width="20" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.61 0.183594H5.98961C3.12627 0.183594 0.799805 2.55085 0.799805 5.4644V12.8973C0.799805 15.8163 3.12627 18.1781 5.98961 18.1781H20.6046C23.4733 18.1781 25.7944 15.8108 25.7944 12.8973V5.4644C25.7998 2.55085 23.4733 0.183594 20.61 0.183594ZM17.0959 9.54779L10.2575 12.8642C10.0731 12.9524 9.86705 12.82 9.86705 12.6103V5.7679C9.86705 5.55821 10.084 5.42578 10.2629 5.51958L17.1013 9.04564C17.3074 9.15048 17.302 9.44846 17.0959 9.54779Z"
+                    fill="#FF1313"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item me-3">
+              <a href="####" class="nav-link">
+                <svg width="20" height="15" viewBox="0 0 7 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.78997 4.76274V0.586914H5.08784V4.76274H6.78997ZM2.53465 4.76274V0.586914H0.83252V4.76274H2.53465Z" fill="white" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+          <div class="row d-flex justify-content-between me-3 ms-3">
+            <div class="col-lg-4 col-md-4 col-sm-12" style="font-size: 15px; font-weight: bold"><p class="text-start">&copy; 2021 AgusGame, Inc</p></div>
+            <div class="col-lg-8 col-md-8 col-sm-12" style="font-size: 15px; font-weight: bold"><p class="text-end">Privacy Policy | Terms of Services | Code of Conduct</p></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

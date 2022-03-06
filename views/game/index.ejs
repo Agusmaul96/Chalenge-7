@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play The Game</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <!-- Game Css -->
+    <link rel="stylesheet" href="/css/game.css" />
+    <!-- bootstrap JS -->
+    <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <div id="gameTrial">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 topText">
+          <a href="/home"><img src="/img/logorockpaper.png" alt="" /></a>
+          <br /><br />
+          <h4 class="ml-2">ROCK PAPER SCISSORS</h4>
+        </div>
+      </div>
+      <div class="game-Main">
+        <!-- Area Player -->
+        <div class="col-lg-3 col-sm-3 ml-sm-3 mr-sm-3 player">
+          <h4>PLAYER</h4>
+          <br /><br />
+          <div id="gunting" class="gunting">
+            <img src="/img/gunting.png" alt="" />
+          </div>
+          <div id="kertas" class="kertas">
+            <img src="/img/kertas.png" alt="" />
+          </div>
+          <div id="batu" class="batu">
+            <img src="/img/batu.png" alt="" />
+          </div>
+        </div>
+        <!-- Result & Score -->
+        <div class="col-lg-3 bg-blue result">
+          <div id="refresh" type="button" class="refreshButton">
+            <img onClick="history.go(0)" src="/img/refresh.png" alt="" />
+            REFRESH
+          </div>
+          <div class="col-12 score">
+            <h2 style="font-weight: bold"><span>SCORE</span></h2>
+            <div class="d-flex angka">
+              <h2 class="col-4 score-player"><span class="">0</span></h2>
+              <h2 class="col-4"><span class="dif-score" style="font-size: 50px; display: flex; justify-content: center">-</span></h2>
+              <h2 class="col-4 score-computer"><span>0</span></h2>
+            </div>
+          </div>
+          <div class="col-lg-8 vs-text">VS</div>
+          <div class="hasil"></div>
+        </div>
+        <!-- Area Computer -->
+        <div class="col-lg-3 col-sm-3 ml-sm-3 mr-sm-3 computer">
+          <h4>COMPUTER</h4>
+          <br /><br />
+          <div id="com-gunting" class="com-gunting">
+            <img src="/img/gunting.png" alt="" />
+          </div>
+          <div id="com-kertas" class="com-kertas">
+            <img src="/img/kertas.png" alt="" />
+          </div>
+          <div id="com-batu" class="com-batu">
+            <img src="/img/batu.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/game.js"></script>
+  </body>
+</html>
