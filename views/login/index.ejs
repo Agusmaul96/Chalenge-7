@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/game.css" />
+  </head>
+  <body style="background-color: #9c835f">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 topText">
+          <a href="/home"><img src="/img/logorockpaper.png" alt="" /></a>
+          <br /><br />
+          <h4 class="ml-2">ROCK PAPER SCISSORS</h4>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 100px">
+        <div class="col-lg-6 col-sm-12 m-auto">
+          <div class="card p-5">
+            <h1 class="mb-5">Login</h1>
+
+            <form action="/login/auth" method="POST" class="row g-3">
+              <% if (error) { %>
+              <div class="alert <%= messageClass %>" role="alert"><%= error %></div>
+              <% } %>
+
+              <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-4 col-form-label"> Email </label>
+
+                <div class="col-sm-8">
+                  <input type="email" name="uEmail" class="form-control" placeholder="example@gmail.com" />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-4 col-form-label"> Password </label>
+
+                <div class="col-sm-8">
+                  <input type="password" name="uPassword" class="form-control" placeholder="12345678" />
+                </div>
+              </div>
+
+              <div class="row m-auto">
+                <button type="submit" class="btn btn-primary text-right float-end mb-3" style="width: 125px; margin-right: 20px">Login</button>
+              </div>
+              <div class="row m-auto">
+                <h6>Belum Punya Akun? <a href="/signup">Daftar Sekarang</a></h6>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  </body>
+</html>
