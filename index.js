@@ -72,6 +72,11 @@ app.post("/signup/post", (req, res) => {
         error: "Silahkan Isi Terlebih Dahulu",
         messageClass: "alert-danger",
       });
+    } else if (req.body.email === "") {
+      res.render("signup", {
+        error: "Email Masih Kosong",
+        messageClass: "alert-danger",
+      });
     } else if (req.body.password === "") {
       res.render("signup", {
         error: "Password Masih Kosong",
@@ -106,16 +111,35 @@ app.post("/login/auth", (req, res) => {
     if (user.email === req.body.uEmail && user.password === req.body.uPassword) {
       isLogin = true;
       res.redirect("/play");
+    } else if (req.body.uEmail === "" && req.body.uPassword === "") {
+      res.render("login", {
+        error: "masukan akun terlebih dahulu",
+        messageClass: "alert-danger",
+      });
+    } else if (req.body.uPassword === "") {
+      res.render("login", {
+        error: "Masukan password terlebih dahulu",
+        messageClass: "alert-danger",
+      });
+    } else if (!(user.email === req.body.uEmail) && user.password === req.body.uPassword) {
+      res.render("login", {
+        error: "email yang kamu masukan salah",
+        messageClass: "alert-danger",
+      });
+    } else if (user.email === req.body.uEmail && !(users.password === req.body.uPassword)) {
+      res.render("login", {
+        error: "password yang kamu masukan salah",
+        messageClass: "alert-danger",
+      });
+    } else if (!(user.email === req.body.uEmail) && !(user.password === req.body.uPassword)) {
+      res.render("login", {
+        error: "Akun belum terdaftar ",
+        messageClass: "alert-danger",
+      });
     }
-    return user.email === req.body.uEmail && user.password === req.body.uPassword;
-  });
 
-  if (!(users.email === req.body.uEmail)) {
-    res.render("login", {
-      error: "email atau password yang kamu masukan salah",
-      messageClass: "alert-danger",
-    });
-  }
+    return;
+  });
 });
 
 app.listen(port, () => {
