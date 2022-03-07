@@ -41,7 +41,7 @@ app.get("/play", (req, res) => {
   res.render("game");
 });
 
-//PAGE CREATE USER
+//PAGE Sign Up
 app.get("/signup", (req, res) => {
   res.render("signup", {
     error: "",
@@ -60,29 +60,43 @@ app.get("/login", (req, res) => {
 app.post("/signup/post", (req, res) => {
   const users = require("./db/user.json");
   const { name, email, password } = req.body;
+  // Request data ke user.json
   const user = users.find((user) => {
     if (user.email === req.body.email) {
       res.render("signup", {
         error: "Email Sudah Terdaftar.",
         messageClass: "alert-danger",
       });
+    } else if (req.body.name === "" && req.body.email === "" && req.body.password === "") {
+      res.render("signup", {
+        error: "Silahkan Isi Terlebih Dahulu",
+        messageClass: "alert-danger",
+      });
+    } else if (req.body.password === "") {
+      res.render("signup", {
+        error: "Password Masih Kosong",
+        messageClass: "alert-danger",
+      });
+    } else if (req.body.name === "") {
+      res.render("signup", {
+        error: "Nama Masih Kosong",
+        messageClass: "alert-danger",
+      });
+    } else if (!(users.email === req.body.email)) {
+      users.push({
+        name,
+        email,
+        password,
+      });
+      res.render("login", {
+        error: "Akun Berhasil di daftarkan Silahkan Login",
+        messageClass: "alert-success",
+      });
+      // res.json(users);
     }
+
     return;
   });
-
-  if (!(users.email === req.body.email)) {
-    res.render("login", {
-      error: "Akun Berhasil di daftarkan Silahkan Login",
-      messageClass: "alert-success",
-    });
-  }
-
-  users.push({
-    name,
-    email,
-    password,
-  });
-  // res.json(users);
 });
 
 // API LOGIN
