@@ -131,15 +131,15 @@ app.post("/login/auth", (req, res) => {
         error: "password yang kamu masukan salah",
         messageClass: "alert-danger",
       });
-    } else if (!(user.email === req.body.uEmail) && !(user.password === req.body.uPassword)) {
-      res.render("login", {
-        error: "Akun belum terdaftar ",
-        messageClass: "alert-danger",
-      });
     }
-
     return;
   });
+  if (!(users.email === req.body.uEmail)) {
+    res.render("login", {
+      error: "Akun belum terdaftar ",
+      messageClass: "alert-danger",
+    });
+  }
 });
 
 app.listen(port, () => {
