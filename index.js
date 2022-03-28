@@ -1,23 +1,31 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const app = express();
-const port = 8080;
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.urlencoded());
-// folder static
-app.use(express.static("assets"));
-
-const users = require("./db/user.json");
+const { game, Biodata, History } = require("./models");
+// const game = require("./routes/game");
+// const history = require("./routes/history");
 let isLogin = false;
-
+const port = 8080;
 // view engine ejs
 app.set("view engine", "ejs");
 app.set("views", "views");
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+// folder static
+app.use(express.static("assets"));
 
-app.get("/users", (req, res) => {
-  res.json(users);
+// app.use(game);
+// app.use(history);
+
+// app.get("/users", async (_, res) => {
+//   res.json(await users.findAll());
+// });
+
+app.get("/data", async (_, res) => {
+  const data = await game.findAll({
+    // include: [Biodata, History],
+  });
+  res.json(data);
 });
-
 // Home
 app.get("/", (req, res) => {
   res.render("index");
@@ -57,89 +65,102 @@ app.get("/login", (req, res) => {
 
 // Daftar Akun Baru
 
-app.post("/signup/post", (req, res) => {
-  const users = require("./db/user.json");
-  const { name, email, password } = req.body;
-  // Request data ke user.json
-  const user = users.find((user) => {
-    if (user.email === req.body.email) {
-      res.render("signup", {
-        error: "Email Sudah Terdaftar.",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.name === "" && req.body.email === "" && req.body.password === "") {
-      res.render("signup", {
-        error: "Silahkan Isi Terlebih Dahulu",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.email === "") {
-      res.render("signup", {
-        error: "Email Masih Kosong",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.password === "") {
-      res.render("signup", {
-        error: "Password Masih Kosong",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.name === "") {
-      res.render("signup", {
-        error: "Nama Masih Kosong",
-        messageClass: "alert-danger",
-      });
-    } else if (!(users.email === req.body.email)) {
-      users.push({
-        name,
-        email,
-        password,
-      });
-      res.render("login", {
-        error: "Akun Berhasil di daftarkan Silahkan Login",
-        messageClass: "alert-success",
-      });
-      // res.json(users);
-    }
-
-    return;
+app.post("/signup/post", async (req, res) => {
+  const { game } = require("./models");
+  const user = await game.create({
+    username: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
   });
+  res.redirect("/login");
+  // res.status(201).json(user);
+
+  // const user = await Game.findAll((user) => {
+  //   if (user.email === req.body.email) {
+  //     res.render("signup", {
+  //       error: "Email Sudah Terdaftar.",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (req.body.name === "" && req.body.email === "" && req.body.password === "") {
+  //     res.render("signup", {
+  //       error: "Silahkan Isi Terlebih Dahulu",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (req.body.email === "") {
+  //     res.render("signup", {
+  //       error: "Email Masih Kosong",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (req.body.password === "") {
+  //     res.render("signup", {
+  //       error: "Password Masih Kosong",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (req.body.name === "") {
+  //     res.render("signup", {
+  //       error: "Nama Masih Kosong",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (!(Game.email === req.body.email)) {
+  //     Game.create({
+  //       username: req.body.name,
+  //       email: req.body.email,
+  //       password: req.body.password,
+  //     });
+  //     res.render("login", {
+  //       error: "Akun Berhasil di daftarkan Silahkan Login",
+  //       messageClass: "alert-success",
+  //     });
+  //     // res.json(user);
+  //   }
+  //   return;
+  // });
 });
 
 // API LOGIN
-app.post("/login/auth", (req, res) => {
-  const users = require("./db/user.json");
-  const user = users.find((user) => {
-    if (user.email === req.body.uEmail && user.password === req.body.uPassword) {
+app.post("/login/auth", async (req, res) => {
+  const { game } = require("./models");
+  const user = await game
+    .findAll({
+      where: {
+        email: req.body.uEmail,
+        password: req.body.uPassword,
+      },
+    })
+    .then(() => {
       isLogin = true;
       res.redirect("/play");
-    } else if (req.body.uEmail === "" && req.body.uPassword === "") {
-      res.render("login", {
-        error: "masukan akun terlebih dahulu",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.uPassword === "") {
-      res.render("login", {
-        error: "Masukan password terlebih dahulu",
-        messageClass: "alert-danger",
-      });
-    } else if (!(user.email === req.body.uEmail) && user.password === req.body.uPassword) {
-      res.render("login", {
-        error: "email yang kamu masukan salah",
-        messageClass: "alert-danger",
-      });
-    } else if (user.email === req.body.uEmail && !(users.password === req.body.uPassword)) {
-      res.render("login", {
-        error: "password yang kamu masukan salah",
-        messageClass: "alert-danger",
-      });
-    }
-    return;
-  });
-  if (!(users.email === req.body.uEmail)) {
-    res.render("login", {
-      error: "Akun belum terdaftar ",
-      messageClass: "alert-danger",
     });
-  }
+  // if (user.email === req.body.uEmail && user.password === req.body.uPassword) {
+  //   isLogin = true;
+  //   res.redirect("/play");
+  // } else if (req.body.uEmail === "" && req.body.uPassword === "") {
+  //   res.render("login", {
+  //     error: "masukan akun terlebih dahulu",
+  //     messageClass: "alert-danger",
+  //   });
+  // } else if (req.body.uPassword === "") {
+  //   res.render("login", {
+  //     error: "Masukan password terlebih dahulu",
+  //     messageClass: "alert-danger",
+  //   });
+  // } else if (!(user.email === req.body.uEmail) && user.password === req.body.uPassword) {
+  //   res.render("login", {
+  //     error: "email yang kamu masukan salah",
+  //     messageClass: "alert-danger",
+  //   });
+  // } else if (user.email === req.body.uEmail && !(user.password === req.body.uPassword)) {
+  //   res.render("login", {
+  //     error: "password yang kamu masukan salah",
+  //     messageClass: "alert-danger",
+  //   });
+  // } else if (!(user.email === req.body.uEmail)) {
+  //   res.render("login", {
+  //     error: "Akun belum terdaftar ",
+  //     messageClass: "alert-danger",
+  //   });
+  // }
+  // return;
 });
 
 app.listen(port, () => {
