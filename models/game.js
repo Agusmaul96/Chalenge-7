@@ -8,11 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Game.belongsTo(models.Biodata, {
-        foreignKey: {
-          name: "GameId",
-        },
-      });
+      Game.hasOne(models.Biodata);
       // Game.hasMany(models.History, {
       //   foreignKey: {
       //     name: "GameId",

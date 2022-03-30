@@ -23,7 +23,12 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Biodata</h1>
           </div>
-
+          <a href="/signup">
+            <button type="button" class="btn btn-primary mb-3">
+              <span data-feather="plus"></span>
+              Signup to Add Biodata
+            </button>
+          </a>
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -46,9 +51,9 @@
                       <button type="button" class="btn btn-warning mb-3">Update</button>
                     </a>
 
-                    <a href="/biodata/delete/<%= biodata.id %>">
+                    <!-- <a href="/biodata/delete/">
                       <button type="button" class="btn btn-danger mb-3">Delete</button>
-                    </a>
+                    </a> -->
                   </td>
                 </tr>
                 <% }); %>

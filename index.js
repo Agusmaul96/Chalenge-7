@@ -82,7 +82,7 @@ app.post("/signup/post", async (req, res) => {
     password: req.body.password,
     GameId: req.body.Gameid,
   });
-  res.redirect("/dashboard");
+  res.redirect("/biodata/add");
   // res.status(201).json(user);
 
   // const user = await Game.findAll((user) => {
@@ -126,7 +126,11 @@ app.post("/signup/post", async (req, res) => {
   //   return;
   // });
 });
-
+app.get("/biodata/add", (req, res) => {
+  res.render("biodata/add-biodata", {
+    error: "",
+  });
+});
 // API LOGIN
 app.post("/login/auth", async (req, res) => {
   const { Game } = require("./models");
@@ -161,7 +165,15 @@ app.get("/biodata", async (_, res) => {
     biodatas: biodataData,
   });
 });
+app.post("/biodata/post", async (req, res) => {
+  await Biodata.create({
+    GameId: req.body.gameid,
+    nama: req.body.namebio,
+    kotaAsal: req.body.kotaasal,
+  });
 
+  res.redirect("/biodata");
+});
 // UPDATE DATA
 app.get("/biodata/edit/:id", async (req, res) => {
   const biodataData = await Biodata.findByPk(req.params.id);
