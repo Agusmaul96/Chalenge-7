@@ -136,56 +136,23 @@ app.post("/login/auth", async (req, res) => {
       password: req.body.uPassword,
     },
   }).then(() => {
-    // if (Game.email === req.body.uEmail && Game.password === req.body.uPassword) {
-    //   isLogin = true;
-    //   res.redirect("/dashboard");
-    // } else
+    isLogin = true;
+    res.redirect("/dashboard");
 
-    // if (req.body.uEmail === "" && req.body.uPassword === "") {
-    //   res.render("login", {
-    //     error: "masukan akun terlebih dahulu",
-    //     messageClass: "alert-danger",
-    //   });
-    // } else if (req.body.uPassword === "") {
-    //   res.render("login", {
-    //     error: "Masukan password terlebih dahulu",
-    //     messageClass: "alert-danger",
-    //   });
-    // }
+    if (req.body.uEmail === "" && req.body.uPassword === "") {
+      res.render("login", {
+        error: "masukan akun terlebih dahulu",
+        messageClass: "alert-danger",
+      });
+    } else if (req.body.uPassword === "") {
+      res.render("login", {
+        error: "Masukan password terlebih dahulu",
+        messageClass: "alert-danger",
+      });
+    }
 
     return;
   });
-  // if (user.email === req.body.uEmail && user.password === req.body.uPassword) {
-  //   isLogin = true;
-  //   res.redirect("/play");
-  // } else
-  // if (req.body.uEmail === "" && req.body.uPassword === "") {
-  //   res.render("login", {
-  //     error: "masukan akun terlebih dahulu",
-  //     messageClass: "alert-danger",
-  //   });
-  // } else if (req.body.uPassword === "") {
-  //   res.render("login", {
-  //     error: "Masukan password terlebih dahulu",
-  //     messageClass: "alert-danger",
-  //   });
-  // } else if (!(user.email === req.body.uEmail) && user.password === req.body.uPassword) {
-  //   res.render("login", {
-  //     error: "email yang kamu masukan salah",
-  //     messageClass: "alert-danger",
-  //   });
-  // } else if (user.email === req.body.uEmail && !(user.password === req.body.uPassword)) {
-  //   res.render("login", {
-  //     error: "password yang kamu masukan salah",
-  //     messageClass: "alert-danger",
-  //   });
-  // } else if (!(user.email === req.body.uEmail)) {
-  //   res.render("login", {
-  //     error: "Akun belum terdaftar ",
-  //     messageClass: "alert-danger",
-  //   });
-  // }
-  // return;
 });
 // Biodata
 app.get("/biodata", async (_, res) => {
