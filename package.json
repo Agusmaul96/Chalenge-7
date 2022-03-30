@@ -1,7 +1,7 @@
 {
   "name": "my-apps",
   "version": "1.0.0",
-  "description": "Ini adalah repository chalenge 5",
+  "description": "Ini adalah repository chalenge 6",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -23,11 +23,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Agusmaul96/chalenge-5.git"
+    "url": "git+https://github.com/Agusmaul96/chalenge-6.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/Agusmaul96/chalenge-5/issues"
+    "url": "https://github.com/Agusmaul96/chalenge-6/issues"
   },
-  "homepage": "https://github.com/Agusmaul96/chalenge-5#readme"
+  "homepage": "https://github.com/Agusmaul96/chalenge-6#readme"
 }

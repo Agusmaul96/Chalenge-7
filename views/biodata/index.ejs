@@ -21,41 +21,32 @@
 
         <main role="main" class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">History Data</h1>
+            <h1 class="h2">Biodata</h1>
           </div>
-
-          <a href="/play/game">
-            <button type="button" class="btn btn-primary mb-3">
-              <span data-feather="plus"></span>
-              Play Game to Add New History
-            </button>
-          </a>
 
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
                   <th scope="col">GameId</th>
-                  <th scope="col">Played At</th>
-                  <th scope="col">Score Player</th>
-                  <th scope="col">Score Computer</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Kota Asal</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
-                <% histories.forEach((history) => { %>
+                <% biodatas.forEach((biodata) => { %>
                 <tr>
-                  <td><%= history.GameId %></td>
-                  <td><%= history.playedAt %></td>
-                  <td><%= history.scorePlayer %></td>
-                  <td><%= history.scoreComputer %></td>
+                  <td><%= biodata.GameId %></td>
+                  <td><%= biodata.nama %></td>
+                  <td><%= biodata.kotaAsal %></td>
 
                   <td>
-                    <a href="/history/edit/<%= history.id %>">
-                      <button type="button" class="btn btn-warning mb-3">Play Game To Update</button>
+                    <a href="/biodata/edit/<%= biodata.id %>">
+                      <button type="button" class="btn btn-warning mb-3">Update</button>
                     </a>
 
-                    <a href="/history/delete/<%= history.id %>">
+                    <a href="/biodata/delete/<%= biodata.id %>">
                       <button type="button" class="btn btn-danger mb-3">Delete</button>
                     </a>
                   </td>

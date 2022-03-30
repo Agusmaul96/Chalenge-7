@@ -42,14 +42,24 @@
             <img onClick="history.go(0)" src="/img/refresh.png" alt="" />
             REFRESH
           </div>
-          <div class="col-12 score">
-            <h2 style="font-weight: bold"><span>SCORE</span></h2>
-            <div class="d-flex angka">
-              <h2 class="col-4 score-player"><span class="">0</span></h2>
-              <h2 class="col-4"><span class="dif-score" style="font-size: 50px; display: flex; justify-content: center">-</span></h2>
-              <h2 class="col-4 score-computer"><span>0</span></h2>
+          <form method="POST" action="/history/post">
+            <div class="mb-1">
+              <input type="number" name="gameId" min="1" class="form-control" placeholder="Game Id" />
             </div>
-          </div>
+            <div class="col-12 score">
+              <h2 style="font-weight: bold"><span>SCORE</span></h2>
+              <div class="d-flex angka">
+                <h2 type="number" name="scorePlay" min="10" max="500" class="col-4 score-player">0</h2>
+                <h2 class="col-4"><span class="dif-score" style="font-size: 50px; display: flex; justify-content: center">-</span></h2>
+                <h2 type="number" name="scoreComp" min="10" max="500" class="col-4 score-computer">0</h2>
+              </div>
+              <div class="col-8">
+                <input type="number" name="scorePlay" min="10" max="500" class="form-control" placeholder="Skor Player" />
+                <input type="number" name="scoreComp" min="10" max="500" class="form-control" placeholder="Skor Computer" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success mt-2 col-4">Simpan</button>
+          </form>
           <div class="col-lg-8 vs-text">VS</div>
           <div class="hasil"></div>
         </div>
@@ -69,6 +79,6 @@
         </div>
       </div>
     </div>
-    <script src="js/game.js"></script>
+    <script src="/js/game.js"></script>
   </body>
 </html>

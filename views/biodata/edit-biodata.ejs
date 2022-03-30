@@ -5,7 +5,7 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Dashboard</title>
+      <title>Edit Biodata</title>
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
       <!-- Game Css -->
@@ -23,22 +23,26 @@
 
         <main role="main" class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Add History Data</h1>
+            <h1 class="h2">Edit Biodata</h1>
           </div>
-
-          <form method="POST" action="/history/post">
+          <form method="POST" action="/biodata/update">
             <div class="mb-3">
               <label class="form-label">Game Id</label>
-              <input type="number" name="gameId" min="1" class="form-control" />
+              <input type="number" name="gameid" min="1" class="form-control" value="<%= biodatas.GameId %>" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Nama</label>
+              <input type="text" name="namebio" class="form-control" value="<%= biodatas.nama %>" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Kota asal</label>
+              <input type="text" name="kotaasal" class="form-control" value="<%= biodatas.kotaAsal %>" />
             </div>
 
             <!-- <div class="mb-3">
-              <label class="form-label">Score Player</label>
-              <input type="number" name="scorePlay" min="10" max="500" class="form-control" />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Score Computer</label>
-              <input type="number" name="scoreComp" min="10" max="500" class="form-control" />
+              <input type="hidden" name="id" min="1" class="form-control" value="<%= biodatas.id %>" />
             </div> -->
 
             <button type="submit" class="btn btn-success">Saved</button>
@@ -46,5 +50,6 @@
         </main>
       </div>
     </div>
+    <script src="/js/game.js"></script>
   </body>
 </html>

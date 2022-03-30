@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('../partials/head') %>
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Dashboard</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+      <!-- Game Css -->
+      <link rel="stylesheet" href="/css/game.css" />
+      <!-- bootstrap JS -->
+      <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+    </head>
   </head>
   <body>
     <%- include('../partials/navbar'); %>
@@ -11,52 +22,73 @@
         <%- include('../partials/sidebar'); %>
 
         <main role="main" class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
-          <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom"
-          >
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Edit History Data</h1>
           </div>
 
-          <form method="POST" action="/history/update">
-            <div class="mb-3">
-              <label class="form-label">Game Id</label>
-              <input
-                type="number"
-                name="gameId"
-                min="1"
-                class="form-control"
-                value="<%= history.GameId %>"
-              />
+          <div class="game-Main">
+            <!-- Area Player -->
+            <div class="col-lg-3 col-sm-3 ml-sm-3 mr-sm-3 player">
+              <h4>PLAYER</h4>
+              <br /><br />
+              <div id="gunting" class="gunting">
+                <img src="/img/gunting.png" alt="" />
+              </div>
+              <div id="kertas" class="kertas">
+                <img src="/img/kertas.png" alt="" />
+              </div>
+              <div id="batu" class="batu">
+                <img src="/img/batu.png" alt="" />
+              </div>
             </div>
-
-            <div class="mb-3">
-              <label class="form-label">Score</label>
-              <input
-                type="number"
-                name="score"
-                min="10"
-                max="100"
-                class="form-control"
-                value="<%= history.score %>"
-              />
+            <!-- Result & Score -->
+            <div class="col-lg-3 bg-blue result">
+              <div id="refresh" type="button" class="refreshButton">
+                <img onClick="history.go(0)" src="/img/refresh.png" alt="" />
+                REFRESH
+              </div>
+              <form method="POST" action="/history/update">
+                <div class="mb-1">
+                  <input type="number" name="gameId" min="1" class="form-control" placeholder="Game Id" value="<%= history.GameId %>" />
+                </div>
+                <div class="col-12 score">
+                  <h2 style="font-weight: bold"><span>SCORE</span></h2>
+                  <div class="d-flex angka">
+                    <h2 type="number" name="scorePlay" min="10" max="500" class="col-4 score-player">0</h2>
+                    <h2 class="col-4"><span class="dif-score" style="font-size: 50px; display: flex; justify-content: center">-</span></h2>
+                    <h2 type="number" name="scoreComp" min="10" max="500" class="col-4 score-computer">0</h2>
+                  </div>
+                  <div class="col-8">
+                    <input type="number" name="scorePlay" min="10" max="500" class="form-control" placeholder="Skor Player" value="<%= history.scorePlayer %>" />
+                    <input type="number" name="scoreComp" min="10" max="500" class="form-control" placeholder="Skor Computer" value="<%= history.scoreComputer %>" />
+                  </div>
+                  <button type="submit" class="btn btn-success mt-2 col-4">Update</button>
+                </div>
+                <div class="mb-3">
+                  <input type="hidden" name="id" min="1" class="form-control" value="<%= history.id %>" />
+                </div>
+              </form>
+              <div class="col-lg-8 vs-text">VS</div>
+              <div class="hasil"></div>
             </div>
-
-            <div class="mb-3">
-              <input
-                type="hidden"
-                name="id"
-                min="1"
-                class="form-control"
-                value="<%= history.id %>"
-              />
+            <!-- Area Computer -->
+            <div class="col-lg-3 col-sm-3 ml-sm-3 mr-sm-3 computer">
+              <h4>COMPUTER</h4>
+              <br /><br />
+              <div id="com-gunting" class="com-gunting">
+                <img src="/img/gunting.png" alt="" />
+              </div>
+              <div id="com-kertas" class="com-kertas">
+                <img src="/img/kertas.png" alt="" />
+              </div>
+              <div id="com-batu" class="com-batu">
+                <img src="/img/batu.png" alt="" />
+              </div>
             </div>
-
-            <button type="submit" class="btn btn-success">Saved</button>
-          </form>
+          </div>
         </main>
       </div>
     </div>
-
-    <%- include('../partials/script'); %>
+    <script src="/js/game.js"></script>
   </body>
 </html>

@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Biodata extends Model {
     /**
@@ -9,17 +7,18 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
-    }
+    static associate(models) {}
   }
-  Biodata.init({
-    GameId: DataTypes.INTEGER,
-    nama: DataTypes.STRING,
-    kotaAsal: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Biodata',
-  });
+  Biodata.init(
+    {
+      GameId: DataTypes.INTEGER,
+      nama: DataTypes.STRING,
+      kotaAsal: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "Biodata",
+    }
+  );
   return Biodata;
 };

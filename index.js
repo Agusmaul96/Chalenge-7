@@ -1,6 +1,7 @@
 const express = require("express");
+const req = require("express/lib/request");
 const app = express();
-const { game, Biodata, History } = require("./models");
+
 // const game = require("./routes/game");
 // const history = require("./routes/history");
 let isLogin = false;
@@ -13,16 +14,21 @@ app.use(express.urlencoded({ extended: false }));
 // folder static
 app.use(express.static("assets"));
 
-// app.use(game);
-// app.use(history);
+// routes
+const game = require("./routes/game");
+const history = require("./routes/history");
+app.use(game);
+app.use(history);
 
-// app.get("/users", async (_, res) => {
-//   res.json(await users.findAll());
-// });
-
+// Data All
+const { Game, Biodata, History } = require("./models");
 app.get("/data", async (_, res) => {
-  const data = await game.findAll({
-    // include: [Biodata, History],
+  const data = await Game.findAll({
+    include: [Biodata, History],
+
+    // where: {
+    //   GameId: 1,
+    // },
   });
   res.json(data);
 });
@@ -46,6 +52,9 @@ app.use((req, res, next) => {
 
 // Game
 app.get("/play", (req, res) => {
+  res.render("history");
+});
+app.get("/play/game", (req, res) => {
   res.render("game");
 });
 
@@ -66,13 +75,14 @@ app.get("/login", (req, res) => {
 // Daftar Akun Baru
 
 app.post("/signup/post", async (req, res) => {
-  const { game } = require("./models");
-  const user = await game.create({
+  const { Game } = require("./models");
+  const user = await Game.create({
     username: req.body.name,
     email: req.body.email,
     password: req.body.password,
+    GameId: req.body.Gameid,
   });
-  res.redirect("/login");
+  res.redirect("/dashboard");
   // res.status(201).json(user);
 
   // const user = await Game.findAll((user) => {
@@ -119,22 +129,37 @@ app.post("/signup/post", async (req, res) => {
 
 // API LOGIN
 app.post("/login/auth", async (req, res) => {
-  const { game } = require("./models");
-  const user = await game
-    .findAll({
-      where: {
-        email: req.body.uEmail,
-        password: req.body.uPassword,
-      },
-    })
-    .then(() => {
-      isLogin = true;
-      res.redirect("/play");
-    });
+  const { Game } = require("./models");
+  const user = await Game.findAll({
+    where: {
+      email: req.body.uEmail,
+      password: req.body.uPassword,
+    },
+  }).then(() => {
+    // if (Game.email === req.body.uEmail && Game.password === req.body.uPassword) {
+    //   isLogin = true;
+    //   res.redirect("/dashboard");
+    // } else
+
+    // if (req.body.uEmail === "" && req.body.uPassword === "") {
+    //   res.render("login", {
+    //     error: "masukan akun terlebih dahulu",
+    //     messageClass: "alert-danger",
+    //   });
+    // } else if (req.body.uPassword === "") {
+    //   res.render("login", {
+    //     error: "Masukan password terlebih dahulu",
+    //     messageClass: "alert-danger",
+    //   });
+    // }
+
+    return;
+  });
   // if (user.email === req.body.uEmail && user.password === req.body.uPassword) {
   //   isLogin = true;
   //   res.redirect("/play");
-  // } else if (req.body.uEmail === "" && req.body.uPassword === "") {
+  // } else
+  // if (req.body.uEmail === "" && req.body.uPassword === "") {
   //   res.render("login", {
   //     error: "masukan akun terlebih dahulu",
   //     messageClass: "alert-danger",
@@ -162,7 +187,50 @@ app.post("/login/auth", async (req, res) => {
   // }
   // return;
 });
+// Biodata
+app.get("/biodata", async (_, res) => {
+  const biodataData = await Biodata.findAll({});
+  res.render("biodata", {
+    biodatas: biodataData,
+  });
+});
 
+// UPDATE DATA
+app.get("/biodata/edit/:id", async (req, res) => {
+  const biodataData = await Biodata.findByPk(req.params.id);
+
+  res.render("biodata/edit-biodata", {
+    biodatas: biodataData,
+  });
+});
+
+app.post("/biodata/update", async (req, res) => {
+  await Biodata.update(
+    {
+      GameId: req.body.gameid,
+      nama: req.body.namebio,
+      kotaAsal: req.body.kotaasal,
+    },
+    {
+      // where: parseInt(req.body.id),
+      where: {
+        id: +req.body.id,
+      },
+    }
+  );
+
+  res.redirect("/biodata");
+});
+// delete data
+app.get("/biodata/delete/:id", async (req, res) => {
+  await Biodata.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+
+  res.redirect("/biodata");
+});
 app.listen(port, () => {
   console.log(`Running http://localhost:${port}`);
 });
