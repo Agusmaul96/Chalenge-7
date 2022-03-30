@@ -1,23 +1,37 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const req = require("express/lib/request");
 const app = express();
-const port = 8080;
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.urlencoded());
-// folder static
-app.use(express.static("assets"));
 
-const users = require("./db/user.json");
+// const game = require("./routes/game");
+// const history = require("./routes/history");
 let isLogin = false;
-
+const port = 8080;
 // view engine ejs
 app.set("view engine", "ejs");
 app.set("views", "views");
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+// folder static
+app.use(express.static("assets"));
 
-app.get("/users", (req, res) => {
-  res.json(users);
+// routes
+const game = require("./routes/game");
+const history = require("./routes/history");
+app.use(game);
+app.use(history);
+
+// Data All
+const { Game, Biodata, History } = require("./models");
+app.get("/data", async (_, res) => {
+  const data = await Game.findAll({
+    include: [Biodata, History],
+
+    // where: {
+    //   GameId: 1,
+    // },
+  });
+  res.json(data);
 });
-
 // Home
 app.get("/", (req, res) => {
   res.render("index");
@@ -38,6 +52,9 @@ app.use((req, res, next) => {
 
 // Game
 app.get("/play", (req, res) => {
+  res.render("history");
+});
+app.get("/play/game", (req, res) => {
   res.render("game");
 });
 
@@ -57,91 +74,163 @@ app.get("/login", (req, res) => {
 
 // Daftar Akun Baru
 
-app.post("/signup/post", (req, res) => {
-  const users = require("./db/user.json");
-  const { name, email, password } = req.body;
-  // Request data ke user.json
-  const user = users.find((user) => {
-    if (user.email === req.body.email) {
-      res.render("signup", {
-        error: "Email Sudah Terdaftar.",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.name === "" && req.body.email === "" && req.body.password === "") {
-      res.render("signup", {
-        error: "Silahkan Isi Terlebih Dahulu",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.email === "") {
-      res.render("signup", {
-        error: "Email Masih Kosong",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.password === "") {
-      res.render("signup", {
-        error: "Password Masih Kosong",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.name === "") {
-      res.render("signup", {
-        error: "Nama Masih Kosong",
-        messageClass: "alert-danger",
-      });
-    } else if (!(users.email === req.body.email)) {
-      users.push({
-        name,
-        email,
-        password,
-      });
-      res.render("login", {
-        error: "Akun Berhasil di daftarkan Silahkan Login",
-        messageClass: "alert-success",
-      });
-      // res.json(users);
-    }
-
-    return;
+app.post("/signup/post", async (req, res) => {
+  const { Game } = require("./models");
+  const user = await Game.create({
+    username: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    GameId: req.body.Gameid,
   });
+  res.redirect("/dashboard");
+  // res.status(201).json(user);
+
+  // const user = await Game.findAll((user) => {
+  //   if (user.email === req.body.email) {
+  //     res.render("signup", {
+  //       error: "Email Sudah Terdaftar.",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (req.body.name === "" && req.body.email === "" && req.body.password === "") {
+  //     res.render("signup", {
+  //       error: "Silahkan Isi Terlebih Dahulu",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (req.body.email === "") {
+  //     res.render("signup", {
+  //       error: "Email Masih Kosong",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (req.body.password === "") {
+  //     res.render("signup", {
+  //       error: "Password Masih Kosong",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (req.body.name === "") {
+  //     res.render("signup", {
+  //       error: "Nama Masih Kosong",
+  //       messageClass: "alert-danger",
+  //     });
+  //   } else if (!(Game.email === req.body.email)) {
+  //     Game.create({
+  //       username: req.body.name,
+  //       email: req.body.email,
+  //       password: req.body.password,
+  //     });
+  //     res.render("login", {
+  //       error: "Akun Berhasil di daftarkan Silahkan Login",
+  //       messageClass: "alert-success",
+  //     });
+  //     // res.json(user);
+  //   }
+  //   return;
+  // });
 });
 
 // API LOGIN
-app.post("/login/auth", (req, res) => {
-  const users = require("./db/user.json");
-  const user = users.find((user) => {
-    if (user.email === req.body.uEmail && user.password === req.body.uPassword) {
-      isLogin = true;
-      res.redirect("/play");
-    } else if (req.body.uEmail === "" && req.body.uPassword === "") {
-      res.render("login", {
-        error: "masukan akun terlebih dahulu",
-        messageClass: "alert-danger",
-      });
-    } else if (req.body.uPassword === "") {
-      res.render("login", {
-        error: "Masukan password terlebih dahulu",
-        messageClass: "alert-danger",
-      });
-    } else if (!(user.email === req.body.uEmail) && user.password === req.body.uPassword) {
-      res.render("login", {
-        error: "email yang kamu masukan salah",
-        messageClass: "alert-danger",
-      });
-    } else if (user.email === req.body.uEmail && !(users.password === req.body.uPassword)) {
-      res.render("login", {
-        error: "password yang kamu masukan salah",
-        messageClass: "alert-danger",
-      });
-    }
+app.post("/login/auth", async (req, res) => {
+  const { Game } = require("./models");
+  const user = await Game.findAll({
+    where: {
+      email: req.body.uEmail,
+      password: req.body.uPassword,
+    },
+  }).then(() => {
+    // if (Game.email === req.body.uEmail && Game.password === req.body.uPassword) {
+    //   isLogin = true;
+    //   res.redirect("/dashboard");
+    // } else
+
+    // if (req.body.uEmail === "" && req.body.uPassword === "") {
+    //   res.render("login", {
+    //     error: "masukan akun terlebih dahulu",
+    //     messageClass: "alert-danger",
+    //   });
+    // } else if (req.body.uPassword === "") {
+    //   res.render("login", {
+    //     error: "Masukan password terlebih dahulu",
+    //     messageClass: "alert-danger",
+    //   });
+    // }
+
     return;
   });
-  if (!(users.email === req.body.uEmail)) {
-    res.render("login", {
-      error: "Akun belum terdaftar ",
-      messageClass: "alert-danger",
-    });
-  }
+  // if (user.email === req.body.uEmail && user.password === req.body.uPassword) {
+  //   isLogin = true;
+  //   res.redirect("/play");
+  // } else
+  // if (req.body.uEmail === "" && req.body.uPassword === "") {
+  //   res.render("login", {
+  //     error: "masukan akun terlebih dahulu",
+  //     messageClass: "alert-danger",
+  //   });
+  // } else if (req.body.uPassword === "") {
+  //   res.render("login", {
+  //     error: "Masukan password terlebih dahulu",
+  //     messageClass: "alert-danger",
+  //   });
+  // } else if (!(user.email === req.body.uEmail) && user.password === req.body.uPassword) {
+  //   res.render("login", {
+  //     error: "email yang kamu masukan salah",
+  //     messageClass: "alert-danger",
+  //   });
+  // } else if (user.email === req.body.uEmail && !(user.password === req.body.uPassword)) {
+  //   res.render("login", {
+  //     error: "password yang kamu masukan salah",
+  //     messageClass: "alert-danger",
+  //   });
+  // } else if (!(user.email === req.body.uEmail)) {
+  //   res.render("login", {
+  //     error: "Akun belum terdaftar ",
+  //     messageClass: "alert-danger",
+  //   });
+  // }
+  // return;
+});
+// Biodata
+app.get("/biodata", async (_, res) => {
+  const biodataData = await Biodata.findAll({});
+  res.render("biodata", {
+    biodatas: biodataData,
+  });
 });
 
+// UPDATE DATA
+app.get("/biodata/edit/:id", async (req, res) => {
+  const biodataData = await Biodata.findByPk(req.params.id);
+
+  res.render("biodata/edit-biodata", {
+    biodatas: biodataData,
+  });
+});
+
+app.post("/biodata/update", async (req, res) => {
+  await Biodata.update(
+    {
+      GameId: req.body.gameid,
+      nama: req.body.namebio,
+      kotaAsal: req.body.kotaasal,
+    },
+    {
+      // where: parseInt(req.body.id),
+      where: {
+        id: +req.body.id,
+      },
+    }
+  );
+
+  res.redirect("/biodata");
+});
+// delete data
+app.get("/biodata/delete/:id", async (req, res) => {
+  await Biodata.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+
+  res.redirect("/biodata");
+});
 app.listen(port, () => {
   console.log(`Running http://localhost:${port}`);
 });

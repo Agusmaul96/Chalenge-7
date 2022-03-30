@@ -1,0 +1,49 @@
+const express = require("express");
+const router = express.Router();
+const app = express();
+const { Game } = require("./../models");
+// folder static
+app.use(express.static("assets"));
+router.get("/game", async (_, res) => {
+  res.json(await Game.findAll());
+});
+
+router.post("/game", async (req, res) => {
+  const game = await Game.create({
+    username: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+  });
+
+  res.status(201).json(game);
+});
+
+router.put("/game/:id", async (req, res) => {
+  // router.put("/game", async (req, res) => {
+  const game = await Game.update(
+    {
+      username: req.body.user_name,
+      password: req.body.pass,
+    },
+    {
+      where: {
+        id: req.params.id,
+        // id: req.body.id
+      },
+    }
+  );
+
+  res.status(201).json(game);
+});
+
+router.delete("/game", async (req, res) => {
+  const game = await Game.destroy({
+    where: {
+      id: req.body.id,
+    },
+  });
+
+  res.json(game);
+});
+
+module.exports = router;

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Edit Biodata</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+      <!-- Game Css -->
+      <link rel="stylesheet" href="/css/game.css" />
+      <!-- bootstrap JS -->
+      <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+    </head>
+  </head>
+  <body>
+    <%- include('../partials/navbar'); %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('../partials/sidebar'); %>
+
+        <main role="main" class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Edit Biodata</h1>
+          </div>
+          <form method="POST" action="/biodata/update">
+            <div class="mb-3">
+              <label class="form-label">Game Id</label>
+              <input type="number" name="gameid" min="1" class="form-control" value="<%= biodatas.GameId %>" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Nama</label>
+              <input type="text" name="namebio" class="form-control" value="<%= biodatas.nama %>" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Kota asal</label>
+              <input type="text" name="kotaasal" class="form-control" value="<%= biodatas.kotaAsal %>" />
+            </div>
+
+            <!-- <div class="mb-3">
+              <input type="hidden" name="id" min="1" class="form-control" value="<%= biodatas.id %>" />
+            </div> -->
+
+            <button type="submit" class="btn btn-success">Saved</button>
+          </form>
+        </main>
+      </div>
+    </div>
+    <script src="/js/game.js"></script>
+  </body>
+</html>
