@@ -1,33 +1,41 @@
 {
   "name": "my-apps",
   "version": "1.0.0",
-  "description": "Ini adalah repository chalenge 6",
-  "main": "index.js",
+  "description": "Ini adalah repository chalenge 7",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "pg": "^8.7.3",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "session": "^0.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Agusmaul96/chalenge-6.git"
+    "url": "git+https://github.com/Agusmaul96/chalenge-7.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/Agusmaul96/chalenge-6/issues"
+    "url": "https://github.com/Agusmaul96/chalenge-7/issues"
   },
-  "homepage": "https://github.com/Agusmaul96/chalenge-6#readme"
+  "homepage": "https://github.com/Agusmaul96/chalenge-7#readme"
 }

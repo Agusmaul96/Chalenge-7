@@ -8,14 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      GameId: {
-        type: Sequelize.INTEGER,
-      },
       nama: {
         type: Sequelize.STRING,
       },
       kotaAsal: {
         type: Sequelize.STRING,
+      },
+      GameId: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

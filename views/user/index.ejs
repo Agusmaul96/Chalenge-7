@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <!-- Game Css -->
+    <link rel="stylesheet" href="/css/game.css" />
+    <!-- bootstrap JS -->
+    <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <%- include('../partials/navbar'); %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('../partials/sidebar'); %>
+
+        <main role="main" class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">History Data</h1>
+          </div>
+
+          <a href="/Signup">
+            <button type="button" class="btn btn-primary mb-3">
+              <span data-feather="plus"></span>
+              Sign Up New User
+            </button>
+          </a>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">name</th>
+                  <th scope="col">email</th>
+                  <th scope="col">password</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% users.forEach((user) => { %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><%= user.username %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.password %></td>
+                  <td><%= user.token %></td>
+
+                  <td>
+                    <a href="/biodata">
+                      <button type="button" class="btn btn-warning mb-3">Biodata</button>
+                    </a>
+                    <a href="/usergame/edit/<%= user.id %>">
+                      <button type="button" class="btn btn-warning mb-3">Edit</button>
+                    </a>
+
+                    <a href="/usergame/delete/<%= user.id %>">
+                      <button type="button" class="btn btn-danger mb-3">Delete</button>
+                    </a>
+                  </td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

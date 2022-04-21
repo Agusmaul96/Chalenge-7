@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "Q49035mk",
-    "database": "Game_Suwit",
+    "database": "gamedev",
     "host": "localhost",
     "dialect": "postgres"
   },

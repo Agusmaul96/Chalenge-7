@@ -1,67 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
-    <!-- Game Css -->
-    <link rel="stylesheet" href="/css/game.css" />
-    <!-- bootstrap JS -->
-    <script src="/bootstrap/js/bootstrap.bundle.js"></script>
-  </head>
-  <body>
-    <%- include('../partials/navbar'); %>
+<A!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Dashboard</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+      <!-- Game Css -->
+      <link rel="stylesheet" href="/css/game.css" />
+      <!-- bootstrap JS -->
+      <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+    </head>
+    <body>
+      <%- include('../partials/navbar'); %>
 
-    <div class="container-fluid">
-      <div class="row">
-        <%- include('../partials/sidebar'); %>
+      <div class="container-fluid">
+        <div class="row">
+          <%- include('../partials/sidebar'); %>
 
-        <main role="main" class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Biodata</h1>
-          </div>
-          <a href="/signup">
-            <button type="button" class="btn btn-primary mb-3">
-              <span data-feather="plus"></span>
-              Signup to Add Biodata
-            </button>
-          </a>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">GameId</th>
-                  <th scope="col">Nama</th>
-                  <th scope="col">Kota Asal</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% biodatas.forEach((biodata) => { %>
-                <tr>
-                  <td><%= biodata.GameId %></td>
-                  <td><%= biodata.nama %></td>
-                  <td><%= biodata.kotaAsal %></td>
+          <main role="main" class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+              <h1 class="h2">Biodata</h1>
+            </div>
+            <a href="/biodata/add">
+              <button type="button" class="btn btn-primary mb-3">
+                <span data-feather="plus"></span>
+                Add Biodata
+              </button>
+            </a>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">GameId</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Kota Asal</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% biodata.forEach((biodata) => { %>
+                  <tr>
+                    <td><%= biodata.GameId %></td>
+                    <td><%= biodata.nama %></td>
+                    <td><%= biodata.kotaAsal %></td>
 
-                  <td>
-                    <a href="/biodata/edit/<%= biodata.id %>">
-                      <button type="button" class="btn btn-warning mb-3">Update</button>
-                    </a>
+                    <td>
+                      <a href="/usergame/edit/<%= biodata.id %>">
+                        <button type="button" class="btn btn-warning mb-3">Update</button>
+                      </a>
 
-                    <!-- <a href="/biodata/delete/">
+                      <!-- <a href="/biodata/delete/">
                       <button type="button" class="btn btn-danger mb-3">Delete</button>
                     </a> -->
-                  </td>
-                </tr>
-                <% }); %>
-              </tbody>
-            </table>
-          </div>
-        </main>
+                    </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </main>
+        </div>
       </div>
-    </div>
-  </body>
-</html>
+    </body>
+  </html>
+</A!DOCTYPE>
