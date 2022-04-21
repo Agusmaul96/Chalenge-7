@@ -28,12 +28,12 @@
           <form method="POST" action="/usergame/edit/:id">
             <div class="mb-3">
               <label class="form-label">username</label>
-              <input type="number" name="user_name" min="1" class="form-control" value="<%= dataUser.username %>" />
+              <input type="text" name="user_name" min="1" class="form-control" value="<%= dataUser.username %>" />
             </div>
 
             <div class="mb-3">
               <label class="form-label">email</label>
-              <input type="text" name="pass" class="form-control" value="<%= dataUser.password %>" />
+              <input type="text" name="email" class="form-control" value="<%= dataUser.email %>" />
             </div>
 
             <div class="mb-3">

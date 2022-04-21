@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       // Game.hasMany(models.History);
     }
     static #encrypt = (password) => bcrypt.hashSync(password, 10);
-    static register = ({ email, password }) => {
+    static register = ({ username, email, password }) => {
       const encryptedPassword = this.#encrypt(password);
-      return this.create({ email, password: encryptedPassword });
+      return this.create({ username, email, password: encryptedPassword });
     };
 
     checkPassword = (password) => bcrypt.compareSync(password, this.password);

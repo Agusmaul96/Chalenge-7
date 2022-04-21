@@ -45,11 +45,11 @@ module.exports = {
       const game = await Game.update(
         {
           username: req.body.user_name,
-          password: req.body.pass,
+          email: req.body.email,
         },
         {
           where: {
-            id: req.params.id,
+            id: req.body.gameid,
             // id: req.body.id
           },
         },
