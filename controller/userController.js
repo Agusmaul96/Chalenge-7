@@ -49,8 +49,7 @@ module.exports = {
         },
         {
           where: {
-            id: req.body.gameid,
-            // id: req.body.id
+            id: req.body.id,
           },
         },
         await Biodata.update(
@@ -60,8 +59,7 @@ module.exports = {
           },
           {
             where: {
-              GameId: req.params.id,
-              // id: req.body.id
+              GameId: req.body.id,
             },
           }
         )
