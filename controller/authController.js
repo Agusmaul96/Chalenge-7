@@ -30,10 +30,10 @@ module.exports = {
   },
 
   Login: (_, res) => {
-    res.render("login");
+    res.render("login", { error: "" });
   },
 
-  login: passport.authenticate("local", {
+  loginPass: passport.authenticate("local", {
     successRedirect: "/game_user",
     failureRedirect: "/login",
     failureFlash: true,
@@ -46,13 +46,13 @@ module.exports = {
         password: req.body.password,
       });
       res.redirect("/game_user");
-      // const { id, email, password } = game;
-      // res.json({
-      //   id,
-      //   username: game.username,
-      //   email: game.email,
-      //   token: game.generateToken(),
-      // });
+      const { id, email, password } = game;
+      console.log({
+        id,
+        username: game.username,
+        email: game.email,
+        token: game.generateToken(),
+      });
     } catch (err) {
       console.log(err);
       res.render("login");

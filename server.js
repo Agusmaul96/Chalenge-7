@@ -71,7 +71,7 @@ app.get("/home", (req, res) => {
 
 // Game
 app.get("/play", (req, res) => {
-  res.render("login");
+  res.render("login", { error: "" });
 });
 app.get("/play/game", (req, res) => {
   res.render("game");

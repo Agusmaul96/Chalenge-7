@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const game = require("../controller/userController");
 
-router.get("/game_user", game.userGame);
+const apiRestrict = require("./../middlewares/apiRestrict");
+
+router.get("/game_user", apiRestrict, game.userGame);
 // editUpdate
 router.get("/usergame/edit/:id", game.editUser);
 

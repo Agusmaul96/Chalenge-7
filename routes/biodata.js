@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const biodata = require("../controller/biodataController");
 
-router.get("/biodata", biodata.getBiodata);
+const apiRestrict = require("./../middlewares/apiRestrict");
+
+router.get("/biodata", apiRestrict, biodata.getBiodata);
 router.get("/biodata/add", biodata.addBiodata);
 router.post("/biodata/post", biodata.newBiodata);
 // UPDATE DATA

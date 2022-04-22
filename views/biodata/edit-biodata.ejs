@@ -26,32 +26,32 @@
             <h1 class="h2">Edit User Biodata</h1>
           </div>
           <form method="POST" action="/usergame/edit/:id">
-            <div class="mb-3">
+            <div class="mb-3 col-8">
               <label class="form-label">username</label>
               <input type="text" name="user_name" min="1" class="form-control" value="<%= dataUser.username %>" />
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
               <label class="form-label">email</label>
               <input type="text" name="email" class="form-control" value="<%= dataUser.email %>" />
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
               <label class="form-label">Game Id</label>
               <input type="number" name="gameid" min="1" class="form-control" value="<%= dataUser.Biodata.GameId %>" />
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
               <label class="form-label">Nama</label>
               <input type="text" name="namebio" class="form-control" value="<%= dataUser.Biodata.nama %>" />
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
               <label class="form-label">Kota asal</label>
               <input type="text" name="kota_asal" class="form-control" value="<%= dataUser.Biodata.kotaAsal %>" />
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
               <input type="hidden" name="id" min="1" class="form-control" value="<%= dataUser.id %>" />
             </div>
 
